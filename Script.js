@@ -484,7 +484,7 @@ function renderOverallScene() {
         .on("mousemove", moveTooltip)
         .on("mouseleave", hideTooltip);
 
-    addOverallAnnotation();
+    //addOverallAnnotation();
 }
 
 /* =========================================================
