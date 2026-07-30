@@ -27,6 +27,7 @@ The visualization follows a **martini glass structure**. The first scenes guide 
 The visualization uses the same scatterplot throughout all three scenes:
 - **X-axis:** Weekly Generative AI Usage (Hours)
 - **Y-axis:** Skill Retention Score. 
+
 Each point represents a student record from the dataset. Keeping the same axes across scenes provides visual consistency and makes comparisons easier because viewers do not need to learn a new chart each time as each scene modifies or highlights information within the existing visualization.
 
 The webpage also maintains a consistent visual layout. The narrative information, including the scene title, description, and annotation, appears alongside the visualization. Navigation controls clearly indicate the available scenes and allow the viewer to move forward or backward through the narrative.
