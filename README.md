@@ -15,6 +15,7 @@ The project is hosted using **GitHub Pages**.
 ## 📖 Message
 
 The main message of my narrative visualization is to explore the relationship between students’ generative AI usage and skill retention while considering AI dependency and burnout. The visualization is centred around the question, **“Is AI a Tutor or a Cheat Code?”**
+
 The visualization does not assume that more AI usage automatically results in lower skill retention. The initial scatterplot shows that most students use AI for fewer than approximately 10 hours per week, while skill retention scores vary considerably. This show that AI usage alone may not tell the whole story, and factors such as dependency and burnout can provide additional context.
 
 ## 📊 Narrative Structure
@@ -25,9 +26,11 @@ The visualization follows a **martini glass structure**. The first scenes guide 
 
 The visualization uses the same scatterplot throughout all three scenes:
 - **X-axis:** Weekly Generative AI Usage (Hours)
-- **Y-axis:** Skill Retention Score Each point represents a student record from the dataset. 
-Keeping the same axes across scenes provides visual consistency and makes comparisons easier because viewers do not need to learn a new chart each time as each scene modifies or highlights information within the existing visualization.
+- **Y-axis:** Skill Retention Score. 
+Each point represents a student record from the dataset. Keeping the same axes across scenes provides visual consistency and makes comparisons easier because viewers do not need to learn a new chart each time as each scene modifies or highlights information within the existing visualization.
+
 The webpage also maintains a consistent visual layout. The narrative information, including the scene title, description, and annotation, appears alongside the visualization. Navigation controls clearly indicate the available scenes and allow the viewer to move forward or backward through the narrative.
+
 Important information is emphasized through changes in point appearance, annotations, and filtering. For example, the dependency scene emphasizes students with higher perceived AI dependency while retaining the same positions of the points. This allows the viewer to compare the new information directly with the original relationship.
 
 ## 🎬 Scenes
@@ -37,12 +40,15 @@ The visualization contains three scenes:
 - **Scene 2 — AI Dependency:** Keeps the same scatterplot but emphasizes students according to “Perceived_AI_Dependency” column. Students with higher dependency are visually emphasized, allowing the viewer to examine whether students who report greater reliance on AI appear in different areas of the AI usage and skill retention relationship.
 - **Scene 3 — Burnout and Exploration:** The final scene introduces “Burnout_Risk_Level” and provides interactive filters for additional student characteristics. The viewer can filter the visualization by major category, burnout risk, and primary AI use case.
 This scene appears last because the viewer has already been introduced to the primary relationship and AI dependency. The visualization can therefore transition from a guided narrative into independent exploration, allowing viewers to investigate questions that interest them.
+
 **The order of the scenes:**
+
 The scenes progress from **AI Usage → AI Dependency → Burnout and Exploration**. Each scene adds context without requiring the viewer to learn a completely different visualization.
 
 ## 📝 Annotations
 
 The annotations follow a consistent short explanatory callout template. Annotations provide short messages that tell viewers what to focus on in each scene. For example, in the first scene the annotation encourages the viewer to examine the overall distribution of AI usage and skill retention. In the second scene, the annotation explains the visual emphasis placed on students with greater AI dependency. In the final scene, the annotation directs the viewer toward the interactive filters and encourages comparison across student groups.
+
 The annotation content changes when the viewer transitions between scenes because the purpose of each scene is different. However, the general location and visual appearance of the annotations remain consistent. This allows the annotations to guide attention without disrupting the visual of the narrative.
 
 ## ⚙️ Parameters
@@ -53,7 +59,9 @@ The primary parameter is “currentScene”, which determines which of the three
 - **“currentScene = 2”** → Represents Scene 3: Burnout and Exploration.
 
 Changing this parameter determines which scene title, description, annotation, point emphasis, and interactive controls are displayed.
+
 The visualization also uses the selected major, burnout level, and AI use case as parameters during the exploration scene. The default state displays all students, while changing one or more filters changes the state of the visualization and determines which information is displayed.
+
 These parameters allow the visualization to maintain state without requiring separate webpages or separate visualizations for each scene.
 
 ## 🖱️ Triggers
