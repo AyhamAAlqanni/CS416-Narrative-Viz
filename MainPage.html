@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" 
+            content="A narrative visualization exploring the relationship between generative AI usage 
+                    and skill retention among students.">
+    <title>Is AI a Tutor or a Cheat Code?</title>
+    <!--Style sheet link (CSS)-->
+    <link rel="stylesheet" href="Style.css">
+    <!-- D3.js V7 -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+
+<body>
+
+    <!--Page main header-->
+    <header class="page-header">
+        <div class="header-content">
+            <p class="project-label">Learning in the AI Era</p>
+
+            <h1>Is AI a Tutor or a Cheat Code?</h1>
+
+            <p class="project-subtitle">
+                Exploring the relationship between weekly generative AI usage,
+                AI dependency, burnout, and students’ skill retention.
+            </p>
+        </div>
+    </header>
+
+    <!--Navigation bar buttons-->
+    <nav class="scene-navigation" aria-label="Narrative scenes">
+        <button type="button" class="scene-button active" data-scene="0">1. AI Usage</button>
+
+        <button type="button" class="scene-button" data-scene="1">2. AI Dependency</button>
+
+        <button type="button" class="scene-button" data-scene="2">3. Burnout and Exploration</button>
+    </nav>
+
+    <!--Main page layout and contents-->
+    <main class="page-main">
+        <section class="narrative-panel" aria-labelledby="scene-title">
+            <p id="scene-number" class="scene-number">Scene 1 of 3</p>
+
+            <h2 id="scene-title">How is AI usage related to skill retention?</h2>
+
+            <p id="scene-description">
+                This scene introduces the overall relationship between weekly
+                generative AI usage and students’ skill-retention scores.
+            </p>
+
+            <aside id="annotation" class="annotation" aria-live="polite">
+                Examine the overall distribution before considering dependency
+                and burnout.
+            </aside>
+        </section>
+
+        <section class="visualization-panel" aria-labelledby="chart-title">
+            <div class="chart-heading">
+                <div>
+                    <h2 id="chart-title">
+                        Weekly AI Usage and Skill Retention
+                    </h2>
+
+                    <p id="chart-subtitle">
+                        Each point will represent one student record.
+                    </p>
+                </div>
+
+                <div id="legend" class="legend" aria-label="Chart legend">
+                    <!-- Creating the chart here using D3. -->
+                </div>
+            </div>
+
+            <div
+                id="chart-container"
+                class="chart-container"
+                role="img"
+                aria-label="Scatterplot of weekly generative AI hours and skill-retention scores"
+            >
+                <svg id="scatterplot" width="900" height="550" viewBox="0 0 900 550"
+                        preserveAspectRatio="xMidYMid meet">
+                </svg>
+            </div>
+
+            <div
+                id="tooltip"
+                class="tooltip"
+                role="status"
+                aria-live="polite"
+            ></div>
+        </section>
+
+        <section
+            id="exploration-panel"
+            class="exploration-panel"
+            aria-labelledby="exploration-title"
+            hidden
+        >
+            <h2 id="exploration-title">
+                Explore the Student Records
+            </h2>
+
+            <p>
+                Use the filters to examine whether the relationship changes
+                across different student groups.
+            </p>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="major-filter">
+                        Major category
+                    </label>
+
+                    <select id="major-filter">
+                        <option value="All">All majors</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="burnout-filter">
+                        Burnout risk
+                    </label>
+
+                    <select id="burnout-filter">
+                        <option value="All">All burnout levels</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="use-case-filter">
+                        Primary AI use case
+                    </label>
+
+                    <select id="use-case-filter">
+                        <option value="All">All use cases</option>
+                    </select>
+                </div>
+
+                <button type="button" id="reset-filters">
+                    Reset filters
+                </button>
+            </div>
+        </section>
+
+        <section
+            class="story-controls"
+            aria-label="Scene controls"
+        >
+            <button
+                type="button"
+                id="previous-button"
+                disabled
+            >
+                ← Previous
+            </button>
+
+            <p id="scene-progress">
+                Scene 1 of 3
+            </p>
+
+            <button
+                type="button"
+                id="next-button"
+            >
+                Next →
+            </button>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <p>
+            Data source: AI Student Impact Dataset.
+        </p>
+
+        <p>
+            Copyright &copy; 2026, Ayham Alqanni - Narrative Visualization.
+        </p>
+    </footer>
+
+    <script src="Script.js"></script>
+    
+</body>
+</html>

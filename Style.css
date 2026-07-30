@@ -1,0 +1,567 @@
+/* =========================================================
+   1. GLOBAL RESET AND VARIABLES
+   ========================================================= */
+
+:root {
+    --page-background: #f4f7fb;
+    --panel-background: #ffffff;
+    --primary-color: #173f5f;
+    --secondary-color: #20639b;
+    --accent-color: #3caea3;
+    --highlight-color: #f6c85f;
+    --text-color: #1f2933;
+    --muted-text: #66788a;
+    --border-color: #d9e2ec;
+    --danger-color: #c0392b;
+
+    --small-radius: 6px;
+    --medium-radius: 12px;
+
+    --small-shadow:
+        0 2px 8px rgba(30, 55, 80, 0.08);
+
+    --medium-shadow:
+        0 8px 24px rgba(30, 55, 80, 0.12);
+
+    --maximum-page-width: 1400px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text-color);
+    background-color: var(--page-background);
+
+    line-height: 1.6;
+}
+
+button,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* =========================================================
+   2. PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    display: flex;
+    justify-content: center;
+
+    padding: 48px 24px;
+
+    color: #ffffff;
+    background-color: var(--primary-color);
+}
+
+.header-content {
+    width: 100%;
+    max-width: var(--maximum-page-width);
+}
+
+.project-label {
+    margin: 0 0 8px;
+
+    color: var(--highlight-color);
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+.page-header h1 {
+    margin: 0;
+
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    line-height: 1.15;
+}
+
+.project-subtitle {
+    max-width: 850px;
+    margin: 18px 0 0;
+
+    color: #dbe8f4;
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   3. SCENE NAVIGATION
+   ========================================================= */
+
+.scene-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 18px 24px;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.scene-button {
+    flex: 1 1 220px;
+    max-width: 340px;
+
+    padding: 12px 18px;
+
+    color: var(--primary-color);
+    background-color: #ffffff;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--small-radius);
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.scene-button:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.scene-button.active {
+    color: #ffffff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* =========================================================
+   4. MAIN PAGE FLEXBOX LAYOUT
+   ========================================================= */
+
+.page-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+
+    width: 100%;
+    max-width: var(--maximum-page-width);
+
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+.narrative-panel {
+    flex: 1 1 300px;
+
+    padding: 24px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--medium-radius);
+    box-shadow: var(--small-shadow);
+}
+
+.visualization-panel {
+    flex: 2 1 700px;
+
+    min-width: 0;
+    padding: 24px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--medium-radius);
+    box-shadow: var(--medium-shadow);
+}
+
+.exploration-panel,
+.story-controls {
+    flex: 1 1 100%;
+}
+
+/* =========================================================
+   5. NARRATIVE PANEL
+   ========================================================= */
+
+.scene-number {
+    margin: 0 0 8px;
+
+    color: var(--secondary-color);
+
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+.narrative-panel h2 {
+    margin: 0 0 16px;
+
+    color: var(--primary-color);
+
+    font-size: 1.7rem;
+    line-height: 1.25;
+}
+
+.narrative-panel > p:not(.scene-number) {
+    margin: 0 0 20px;
+}
+
+.annotation {
+    padding: 16px;
+
+    color: var(--primary-color);
+    background-color: #edf7f6;
+
+    border-left: 5px solid var(--accent-color);
+    border-radius: var(--small-radius);
+
+    font-weight: bold;
+}
+
+/* =========================================================
+   6. VISUALIZATION HEADING
+   ========================================================= */
+
+.chart-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-bottom: 18px;
+}
+
+.chart-heading h2 {
+    margin: 0;
+
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.chart-heading p {
+    margin: 8px 0 0;
+    color: var(--muted-text);
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* =========================================================
+   7. CHART CONTAINER AND SVG
+   ========================================================= */
+
+.chart-container {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+}
+
+#scatterplot {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    background-color: #ffffff;
+}
+
+/* =========================================================
+   8. D3 AXES
+   ========================================================= */
+
+.axis-label {
+    fill: var(--text-color);
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tick text {
+    fill: var(--muted-text);
+    font-size: 12px;
+}
+
+.tick line {
+    stroke: #e8edf2;
+}
+
+.domain {
+    stroke: #8596a6;
+}
+
+/* =========================================================
+   9. SCATTERPLOT POINTS
+   ========================================================= */
+
+.student-point {
+    fill: var(--secondary-color);
+    stroke: transparent;
+
+    transition:
+        opacity 0.2s ease,
+        r 0.2s ease,
+        stroke 0.2s ease;
+}
+
+.student-point:hover {
+    stroke: var(--primary-color);
+    stroke-width: 1.5px;
+
+    opacity: 1;
+}
+
+/* =========================================================
+   10. SVG ANNOTATIONS
+   ========================================================= */
+
+.svg-annotation {
+    fill: var(--primary-color);
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* =========================================================
+   11. TOOLTIP
+   ========================================================= */
+
+.tooltip {
+    position: absolute;
+    display: none;
+
+    max-width: 280px;
+    padding: 12px 14px;
+
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--small-radius);
+    box-shadow: var(--medium-shadow);
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    pointer-events: none;
+    z-index: 100;
+}
+
+.tooltip strong {
+    color: var(--primary-color);
+}
+
+/* =========================================================
+   12. EXPLORATION PANEL
+   ========================================================= */
+
+.exploration-panel {
+    padding: 24px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--medium-radius);
+    box-shadow: var(--small-shadow);
+}
+
+.exploration-panel[hidden] {
+    display: none;
+}
+
+.exploration-panel h2 {
+    margin: 0 0 8px;
+    color: var(--primary-color);
+}
+
+.exploration-panel > p {
+    margin: 0 0 20px;
+    color: var(--muted-text);
+}
+
+/* =========================================================
+   13. FILTER FLEXBOX LAYOUT
+   ========================================================= */
+
+.filter-controls {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.filter-controls label {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 210px;
+    gap: 7px;
+
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/*
+    A cleaner HTML structure.
+*/
+.filter-controls select {
+    flex: 1 1 210px;
+
+    min-height: 44px;
+    padding: 10px 12px;
+
+    color: var(--text-color);
+    background-color: #ffffff;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--small-radius);
+}
+
+.filter-controls select:focus {
+    outline: 3px solid rgba(32, 99, 155, 0.2);
+    border-color: var(--secondary-color);
+}
+
+#reset-filters {
+    min-height: 44px;
+    padding: 10px 18px;
+
+    color: #ffffff;
+    background-color: var(--primary-color);
+
+    border: none;
+    border-radius: var(--small-radius);
+
+    font-weight: bold;
+}
+
+#reset-filters:hover {
+    background-color: var(--secondary-color);
+}
+
+/* =========================================================
+   14. STORY CONTROLS
+   ========================================================= */
+
+.story-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px 24px;
+
+    background-color: var(--panel-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--medium-radius);
+}
+
+.story-controls button {
+    min-width: 130px;
+    padding: 11px 18px;
+
+    color: #ffffff;
+    background-color: var(--secondary-color);
+
+    border: none;
+    border-radius: var(--small-radius);
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.story-controls button:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+#scene-progress {
+    margin: 0;
+
+    color: var(--muted-text);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* =========================================================
+   15. PAGE FOOTER
+   ========================================================= */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 24px;
+
+    color: #dbe8f4;
+    background-color: var(--primary-color);
+}
+
+.page-footer p {
+    margin: 0;
+}
+
+/* =========================================================
+   16. ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--highlight-color);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   17. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .page-main {
+        flex-direction: column;
+    }
+
+    .narrative-panel,
+    .visualization-panel {
+        width: 100%;
+        flex-basis: auto;
+    }
+}
