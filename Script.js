@@ -111,7 +111,7 @@ const tooltip = d3.select("#tooltip");
    ========================================================= */
 
 /*
-    These dimensions match the SVG viewBox values in MainPage.html.
+    These dimensions match the SVG viewBox values in index.html.
 */
 const chartWidth = 900;
 const chartHeight = 550;
@@ -137,7 +137,7 @@ const innerHeight =
    ========================================================= */
 
 /*
-    Selecting SVG from MainPage.html.
+    Selecting SVG from index.html.
 */
 const svg = d3.select("#scatterplot");
 
