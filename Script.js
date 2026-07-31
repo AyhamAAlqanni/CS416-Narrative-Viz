@@ -48,8 +48,8 @@ const scenes = [
         title: "Does AI dependency change the picture?",
 
         description:
-            "The same student records are now emphasized according to their " +
-            "reported level of AI dependency.",
+            "The same student records are now emphasized when their " +
+            "reported level of AI dependency is above 5 on a scale of 1 to 10.",
 
         annotation:
             "Compare students with lower and higher dependency levels to see " +
@@ -513,10 +513,10 @@ function renderDependencyScene() {
             (student) => yScale(student.skillRetention)
         )
         .attr("r", (student) => {
-            return student.dependency >= 4 ? 4.5 : 2.5;
+            return student.dependency > 5 ? 4.5 : 2.5;
         })
         .attr("opacity", (student) => {
-            return student.dependency >= 4 ? 0.75 : 0.15;
+            return student.dependency > 5 ? 0.75 : 0.15;
         })
         .on("mouseenter", showTooltip)
         .on("mousemove", moveTooltip)
